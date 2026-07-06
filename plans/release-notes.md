@@ -2,43 +2,44 @@
 
 ## Release
 
-- Version: 1.0.0
-- Commit: N/A (not a git repo)
+- Version: 1.1.0
+- Commit: a5391ff
 - Date: 2026-07-06
-- Environment: preview (static build ready for deployment)
+- Environment: production (Vercel auto-deploy via GitHub)
 
 ## What shipped
 
-Initial release of the System Design Primer learning platform. A React + Vite single-page app with 10 curated system design topics, interactive quiz cards (12 cards with flip-to-reveal), a latency numbers visualization chart, back-of-the-envelope calculation references, structured interview prep with step-by-step guides, progress tracking via localStorage, and full keyboard/screen reader accessibility. Dark theme, responsive mobile layout.
+Replaced all emoji characters with lucide-react SVG icons across the entire app. Emojis render inconsistently across OS/browser combinations — lucide icons are uniform, accessible, and themeable. Added `src/components/Icon.jsx` as a centralized icon registry (31 icons) and wired it into all components and pages.
 
 ## Why
 
-Closes the initial scaffold-to-functional-app gap. The codebase had well-structured components and pages but was non-functional: `App.jsx` was still the Vite template with no routing, `src/data/topics.js` was missing (all pages crashed on import), and multiple accessibility gaps blocked keyboard users.
+Emojis in UI look inconsistent across platforms (Apple vs Android vs Windows render them differently), can't be themed with CSS, and some screen readers announce them as image descriptions. SVG icons from lucide-react solve all three.
 
 ## Scope
 
-- [x] `src/App.jsx` — BrowserRouter, layout shell (Sidebar + Header + ReadingProgress), 4 routes (`/`, `/topic/:id`, `/interview`, `/quiz`)
-- [x] `src/data/topics.js` — 10 topics, 5 categories, 8 interview questions, 6 interview steps, 12 quiz cards, latency data, powers of two
-- [x] `src/pages/QuizPage.jsx` — new page for full quiz card deck
-- [x] `src/components/QuizCard.jsx` — `role="button"`, `tabIndex={0}`, Enter/Space keyboard support
-- [x] `src/pages/Home.jsx` + `InterviewPrep.jsx` — accordion `<div>` → `<button>`, `aria-expanded`, `aria-controls`
-- [x] `src/components/Header.jsx` — ArrowUp/Down/Enter/Escape keyboard nav on search, `role="listbox"`, `role="option"`, `aria-selected`
-- [x] `src/index.css` — `prefers-reduced-motion: reduce` media query
-- [x] `src/App.css` — deleted (unused Vite scaffold)
-- [x] `README.md` — project description, setup, deploy, architecture
+- [x] `src/components/Icon.jsx` — new centralized icon registry mapping 31 string names to lucide-react components
+- [x] `src/data/topics.js` — all 15 emoji `icon` fields replaced with string names (e.g. `'⚡'` → `'zap'`)
+- [x] `src/components/Sidebar.jsx` — logo, category headers, nav links, footer star
+- [x] `src/components/Header.jsx` — search icon, menu toggle
+- [x] `src/components/ContentRenderer.jsx` — pros/cons headers
+- [x] `src/components/LatencyChart.jsx` — info tooltip icon
+- [x] `src/pages/Home.jsx` — all section headings, study guide table, accordion chevrons
+- [x] `src/pages/InterviewPrep.jsx` — section headings, accordion chevrons
+- [x] `src/pages/QuizPage.jsx` — page icon
+- [x] `src/pages/TopicPage.jsx` — topic icon, completion toggle, sources heading
+- [x] `package.json` — added `lucide-react` dependency
 
 ## Rollback
 
-1. Revert to previous commit (pre-engineering changes)
-2. No database migrations to reverse
-3. No environment config to restore
+1. `git revert a5391ff`
+2. `git push origin main` — Vercel auto-deploys
 
 ## Health checks
 
 - [x] `npm run lint` — 0 warnings, 0 errors
-- [x] `npm run build` — clean build, 276KB JS (86KB gzip), 24KB CSS (5KB gzip)
-- [x] All 6 previous blocking findings verified resolved
-- [x] QA score: 21/25 (Correctness 4, Security 5, Accessibility 4, Performance 5, Documentation 3→4 after README update)
+- [x] `npm run build` — clean build, 287KB JS (90KB gzip), 24KB CSS (5KB gzip)
+- [x] Emoji scan — 0 remaining in source files
+- [x] Pushed to GitHub — Vercel auto-deploy triggered
 
 ## Follow-ups
 
@@ -47,6 +48,4 @@ Closes the initial scaffold-to-functional-app gap. The codebase had well-structu
 - [ ] Add `aria-label` to SVG progress ring in `Header.jsx:106`
 - [ ] Add `role="dialog"` and `aria-label` to mobile overlay in `Sidebar.jsx:13`
 - [ ] Add `ponytail:` comment to `dangerouslySetInnerHTML` in `ContentRenderer.jsx:8`
-- [ ] Initialize git repo and make initial commit
 - [ ] Set up CI (lint + build on PR)
-- [ ] Deploy to a static host (Vercel, Netlify, or GitHub Pages)
