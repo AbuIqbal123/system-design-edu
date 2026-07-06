@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Icon from './Icon';
 
 const formatTime = (ns) => {
   if (ns < 1000) return `${ns} ns`;
@@ -63,7 +64,7 @@ export default function LatencyChart({ data = [] }) {
             </div>
             <div className="latency-bar-value">
               {formatTime(ns)}
-              {item.note && <span title={item.note}> ℹ️</span>}
+              {item.note && <span title={item.note}> <Icon name="info" size={14} /></span>}
             </div>
           </div>
         );

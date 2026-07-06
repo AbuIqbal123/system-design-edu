@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { quizCards } from '../data/topics';
 import QuizCard from '../components/QuizCard';
+import Icon from '../components/Icon';
 
 export default function QuizPage() {
   return (
@@ -12,7 +13,7 @@ export default function QuizPage() {
           <span>Quiz</span>
         </div>
         <h1 className="topic-title">
-          <span className="topic-icon">📝</span>
+          <span className="topic-icon"><Icon name="pen-line" size={32} /></span>
           Quiz Cards
         </h1>
         <div className="topic-meta">

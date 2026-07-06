@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { categories, topics, interviewQuestions, interviewSteps, quizCards, latencyNumbers, powersOfTwo } from '../data/topics';
 import QuizCard from '../components/QuizCard';
 import LatencyChart from '../components/LatencyChart';
+import Icon from '../components/Icon';
 
 export default function Home() {
   const [selectedTimeline, setSelectedTimeline] = useState('medium');
@@ -18,7 +19,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <div className="hero-badge">🚀 Open Source Learning Platform</div>
+          <div className="hero-badge"><Icon name="rocket" size={16} /> Open Source Learning Platform</div>
           <h1>
             The <span className="gradient-text">System Design</span> Primer
           </h1>
@@ -57,7 +58,7 @@ export default function Home() {
 
       {/* Categories */}
       <div className="section-header">
-        <h2>📖 Explore Topics</h2>
+        <h2><Icon name="book-open" size={24} /> Explore Topics</h2>
         <p>Everything is a trade-off. Learn the fundamentals of system design.</p>
       </div>
 
@@ -79,7 +80,7 @@ export default function Home() {
 
       {/* Study Guide */}
       <div className="section-header">
-        <h2>📋 Study Guide</h2>
+        <h2><Icon name="clipboard-list" size={24} /> Study Guide</h2>
         <p>Adjust your study plan based on your interview timeline.</p>
       </div>
 
@@ -106,31 +107,31 @@ export default function Home() {
           <tbody>
             <tr>
               <td>Read through system design topics for broad understanding</td>
-              <td>✅ Recommended</td>
+              <td><Icon name="check-circle" size={16} /> Recommended</td>
             </tr>
             <tr>
               <td>Read company engineering blogs for your target companies</td>
-              <td>✅ Recommended</td>
+              <td><Icon name="check-circle" size={16} /> Recommended</td>
             </tr>
             <tr>
               <td>Read through real world architectures</td>
-              <td>✅ Recommended</td>
+              <td><Icon name="check-circle" size={16} /> Recommended</td>
             </tr>
             <tr>
               <td>Review how to approach system design questions</td>
-              <td>✅ Recommended</td>
+              <td><Icon name="check-circle" size={16} /> Recommended</td>
             </tr>
             <tr>
               <td>Work through system design interview questions</td>
-              <td>{selectedTimeline === 'short' ? '📝 Some' : selectedTimeline === 'medium' ? '📝 Many' : '📝 Most'}</td>
+              <td>{selectedTimeline === 'short' ? <><Icon name="pen-line" size={16} /> Some</> : selectedTimeline === 'medium' ? <><Icon name="pen-line" size={16} /> Many</> : <><Icon name="pen-line" size={16} /> Most</>}</td>
             </tr>
             <tr>
               <td>Work through OO design interview questions</td>
-              <td>{selectedTimeline === 'short' ? '📝 Some' : selectedTimeline === 'medium' ? '📝 Many' : '📝 Most'}</td>
+              <td>{selectedTimeline === 'short' ? <><Icon name="pen-line" size={16} /> Some</> : selectedTimeline === 'medium' ? <><Icon name="pen-line" size={16} /> Many</> : <><Icon name="pen-line" size={16} /> Most</>}</td>
             </tr>
             <tr>
               <td>Review additional system design questions</td>
-              <td>{selectedTimeline === 'short' ? '📝 Some' : selectedTimeline === 'medium' ? '📝 Many' : '📝 Most'}</td>
+              <td>{selectedTimeline === 'short' ? <><Icon name="pen-line" size={16} /> Some</> : selectedTimeline === 'medium' ? <><Icon name="pen-line" size={16} /> Many</> : <><Icon name="pen-line" size={16} /> Most</>}</td>
             </tr>
           </tbody>
         </table>
@@ -138,7 +139,7 @@ export default function Home() {
 
       {/* How to Approach */}
       <div className="section-header">
-        <h2>🎯 How to Approach a System Design Interview</h2>
+        <h2><Icon name="target" size={24} /> How to Approach a System Design Interview</h2>
         <p>Use these steps to guide the discussion. The interview is an open-ended conversation — you are expected to lead it.</p>
       </div>
 
@@ -148,7 +149,7 @@ export default function Home() {
             <button className="step-header" onClick={() => setExpandedStep(expandedStep === i ? -1 : i)} aria-expanded={expandedStep === i} aria-controls={`step-content-${i}`}>
               <div className="step-number">{step.step}</div>
               <div className="step-title">{step.title}</div>
-              <div className={`step-toggle ${expandedStep === i ? 'open' : ''}`}>▼</div>
+              <div className={`step-toggle ${expandedStep === i ? 'open' : ''}`}><Icon name="chevron-down" size={14} /></div>
             </button>
             {expandedStep === i && (
               <div className="step-content" id={`step-content-${i}`}>
@@ -166,7 +167,7 @@ export default function Home() {
 
       {/* Interview Questions */}
       <div className="section-header">
-        <h2>💡 System Design Interview Questions</h2>
+        <h2><Icon name="lightbulb" size={24} /> System Design Interview Questions</h2>
         <p>Common questions with sample discussions, code, and diagrams.</p>
       </div>
 
@@ -186,7 +187,7 @@ export default function Home() {
 
       {/* Latency Numbers */}
       <div className="section-header">
-        <h2>⚡ Latency Numbers Every Programmer Should Know</h2>
+        <h2><Icon name="zap" size={24} /> Latency Numbers Every Programmer Should Know</h2>
         <p>Understanding relative speeds helps you make informed design decisions.</p>
       </div>
 
@@ -194,7 +195,7 @@ export default function Home() {
 
       {/* Powers of Two */}
       <div className="section-header">
-        <h2>🔢 Powers of Two Table</h2>
+        <h2><Icon name="calculator" size={24} /> Powers of Two Table</h2>
         <p>Handy reference for back-of-the-envelope calculations.</p>
       </div>
 
@@ -223,7 +224,7 @@ export default function Home() {
 
       {/* Quiz Cards */}
       <div className="section-header">
-        <h2>🎴 Test Your Knowledge</h2>
+        <h2><Icon name="layout-grid" size={24} /> Test Your Knowledge</h2>
         <p>Click a card to reveal the answer. Great for spaced repetition.</p>
       </div>
 

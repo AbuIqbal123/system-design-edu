@@ -1,3 +1,5 @@
+import Icon from './Icon';
+
 function renderInlineFormatting(text) {
   if (!text) return text;
 
@@ -92,7 +94,7 @@ function ContentBlock({ block }) {
       return (
         <div className="pros-cons">
           <div className="pros-list">
-            <h4>✅ Pros</h4>
+            <h4><Icon name="check-circle" size={16} /> Pros</h4>
             <ul>
               {block.pros.map((pro, i) => (
                 <li key={i}>{renderInlineFormatting(pro)}</li>
@@ -100,7 +102,7 @@ function ContentBlock({ block }) {
             </ul>
           </div>
           <div className="cons-list">
-            <h4>❌ Cons</h4>
+            <h4><Icon name="x-circle" size={16} /> Cons</h4>
             <ul>
               {block.cons.map((con, i) => (
                 <li key={i}>{renderInlineFormatting(con)}</li>

@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { topics, categories } from '../data/topics';
 import ContentRenderer from '../components/ContentRenderer';
+import Icon from '../components/Icon';
 
 export default function TopicPage({ completedTopics, onToggleComplete }) {
   const { topicId } = useParams();
@@ -43,7 +44,7 @@ export default function TopicPage({ completedTopics, onToggleComplete }) {
         </div>
 
         <h1 className="topic-title">
-          <span className="topic-icon">{topic.icon}</span>
+          <span className="topic-icon"><Icon name={topic.icon} size={32} /></span>
           {topic.title}
         </h1>
 
@@ -53,7 +54,7 @@ export default function TopicPage({ completedTopics, onToggleComplete }) {
             className={`completion-toggle ${isCompleted ? 'completed' : ''}`}
             onClick={() => onToggleComplete(topicId)}
           >
-            {isCompleted ? '✓ Completed' : '○ Mark as completed'}
+            {isCompleted ? <><Icon name="check-circle" size={16} /> Completed</> : <><Icon name="circle" size={16} /> Mark as completed</>}
           </button>
         </div>
       </div>
@@ -74,7 +75,7 @@ export default function TopicPage({ completedTopics, onToggleComplete }) {
       {/* Sources */}
       {topic.sources && topic.sources.length > 0 && (
         <div className="sources-section">
-          <h4>📚 Source(s) and further reading</h4>
+          <h4><Icon name="file-text" size={16} /> Source(s) and further reading</h4>
           <ul>
             {topic.sources.map((s, i) => (
               <li key={i}>

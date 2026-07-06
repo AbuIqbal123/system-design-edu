@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Icon from './Icon';
 
 export default function Header({ sidebarOpen, onToggleSidebar, topics = [], completedTopics = 0, totalTopics = 0 }) {
   const [query, setQuery] = useState('');
@@ -47,11 +48,11 @@ export default function Header({ sidebarOpen, onToggleSidebar, topics = [], comp
     <header className={`header${sidebarOpen ? '' : ' sidebar-collapsed'}`}>
       <div className="header-left">
         <button className="menu-toggle" onClick={onToggleSidebar} aria-label="Toggle sidebar">
-          ☰
+          <Icon name="menu" size={18} />
         </button>
 
         <div className="search-bar" ref={searchRef}>
-          <span className="search-icon">🔍</span>
+          <span className="search-icon"><Icon name="search" size={14} /></span>
           <input
             type="text"
             placeholder="Search topics..."

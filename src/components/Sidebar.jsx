@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import Icon from './Icon';
 
 export default function Sidebar({ topics = [], categories = [], completedTopics = new Set(), isOpen, onClose }) {
   const location = useLocation();
@@ -15,7 +16,7 @@ export default function Sidebar({ topics = [], categories = [], completedTopics 
       <aside className={`sidebar${isOpen ? '' : ' collapsed'}${isOpen ? ' mobile-open' : ''}`}>
         <div className="sidebar-header">
           <Link to="/" className="sidebar-logo">
-            <span className="logo-icon">🏗️</span>
+            <span className="logo-icon"><Icon name="building" size={18} /></span>
             <span className="logo-text">
               System Design <span>Primer</span>
             </span>
@@ -26,7 +27,7 @@ export default function Sidebar({ topics = [], categories = [], completedTopics 
           {topicsByCategory.map((cat) => (
             <div key={cat.id} className="sidebar-category">
               <div className="sidebar-category-header">
-                <span>{cat.icon}</span> {cat.label}
+                <Icon name={cat.icon} size={14} /> {cat.label}
               </div>
 
               {cat.topics.map((topic) => {
@@ -39,9 +40,9 @@ export default function Sidebar({ topics = [], categories = [], completedTopics 
                     to={`/topic/${topic.id}`}
                     className={`sidebar-link${isActive ? ' active' : ''}${isCompleted ? ' completed' : ''}`}
                   >
-                    <span className="link-icon">{topic.icon}</span>
+                    <span className="link-icon"><Icon name={topic.icon} size={16} /></span>
                     <span>{topic.title}</span>
-                    {isCompleted && <span className="link-check">✓</span>}
+                    {isCompleted && <span className="link-check"><Icon name="check-circle" size={14} /></span>}
                   </Link>
                 );
               })}
@@ -53,14 +54,14 @@ export default function Sidebar({ topics = [], categories = [], completedTopics 
               to="/interview"
               className={`sidebar-link${location.pathname === '/interview' ? ' active' : ''}`}
             >
-              <span className="link-icon">🎯</span>
+              <span className="link-icon"><Icon name="target" size={16} /></span>
               <span>Interview Prep</span>
             </Link>
             <Link
               to="/quiz"
               className={`sidebar-link${location.pathname === '/quiz' ? ' active' : ''}`}
             >
-              <span className="link-icon">📝</span>
+              <span className="link-icon"><Icon name="pen-line" size={16} /></span>
               <span>Quiz</span>
             </Link>
           </div>
@@ -72,7 +73,7 @@ export default function Sidebar({ topics = [], categories = [], completedTopics 
             target="_blank"
             rel="noopener noreferrer"
           >
-            ⭐ GitHub Source
+            <Icon name="star" size={14} /> GitHub Source
           </a>
         </div>
       </aside>

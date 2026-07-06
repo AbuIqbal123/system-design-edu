@@ -1,16 +1,16 @@
 export const categories = [
-  { id: 'fundamentals', icon: '🧱', label: 'Fundamentals', description: 'Core concepts every system designer must know.' },
-  { id: 'data', icon: '🗄️', label: 'Data & Storage', description: 'Databases, caching, and data partitioning strategies.' },
-  { id: 'communication', icon: '🔗', label: 'Communication', description: 'APIs, messaging, and inter-service communication.' },
-  { id: 'scale', icon: '📈', label: 'Scale & Reliability', description: 'Scaling patterns, availability, and fault tolerance.' },
-  { id: 'interview', icon: '🎯', label: 'Interview', description: 'Practice questions and structured approaches.' },
+  { id: 'fundamentals', icon: 'blocks', label: 'Fundamentals', description: 'Core concepts every system designer must know.' },
+  { id: 'data', icon: 'database', label: 'Data & Storage', description: 'Databases, caching, and data partitioning strategies.' },
+  { id: 'communication', icon: 'link', label: 'Communication', description: 'APIs, messaging, and inter-service communication.' },
+  { id: 'scale', icon: 'trending-up', label: 'Scale & Reliability', description: 'Scaling patterns, availability, and fault tolerance.' },
+  { id: 'interview', icon: 'target', label: 'Interview', description: 'Practice questions and structured approaches.' },
 ];
 
 export const topics = [
   {
     id: 'performance-vs-scalability',
     title: 'Performance vs Scalability',
-    icon: '⚡',
+    icon: 'zap',
     category: 'fundamentals',
     content: [
       { type: 'text', value: 'Performance and scalability are related but distinct concerns. **Performance** measures how fast a system responds to a single request. **Scalability** measures how well a system handles increased load.' },
@@ -48,7 +48,7 @@ export const topics = [
   {
     id: 'latency-vs-throughput',
     title: 'Latency vs Throughput',
-    icon: '🏎️',
+    icon: 'gauge',
     category: 'fundamentals',
     content: [
       { type: 'text', value: '**Latency** is the time to perform one operation. **Throughput** is the number of operations per unit time. Optimizing one often trades off against the other.' },
@@ -68,7 +68,7 @@ export const topics = [
   {
     id: 'cap-theorem',
     title: 'CAP Theorem',
-    icon: '🔺',
+    icon: 'triangle',
     category: 'fundamentals',
     content: [
       { type: 'text', value: 'The **CAP theorem** states that a distributed system can guarantee at most two of three properties simultaneously:' },
@@ -92,7 +92,7 @@ export const topics = [
   {
     id: 'load-balancing',
     title: 'Load Balancing',
-    icon: '⚖️',
+    icon: 'scale',
     category: 'scale',
     content: [
       { type: 'text', value: 'A **load balancer** distributes incoming requests across multiple servers. It is the first line of defense against overload.' },
@@ -119,7 +119,7 @@ export const topics = [
   {
     id: 'caching',
     title: 'Caching',
-    icon: '💾',
+    icon: 'hard-drive',
     category: 'data',
     content: [
       { type: 'text', value: 'Caching stores frequently accessed data closer to the consumer, reducing latency and load on the origin.' },
@@ -153,7 +153,7 @@ export const topics = [
   {
     id: 'database-sharding',
     title: 'Database Sharding',
-    icon: '🔀',
+    icon: 'git-branch',
     category: 'data',
     content: [
       { type: 'text', value: '**Sharding** splits a database horizontally across multiple machines. Each shard holds a subset of the data.' },
@@ -178,7 +178,7 @@ export const topics = [
   {
     id: 'message-queues',
     title: 'Message Queues',
-    icon: '📨',
+    icon: 'mail',
     category: 'communication',
     content: [
       { type: 'text', value: 'Message queues decouple producers from consumers. Producers push messages; consumers pull at their own pace. This enables **asynchronous processing** and **load leveling**.' },
@@ -204,7 +204,7 @@ export const topics = [
   {
     id: 'rate-limiting',
     title: 'Rate Limiting',
-    icon: '🚦',
+    icon: 'traffic-cone',
     category: 'scale',
     content: [
       { type: 'text', value: 'Rate limiting controls how many requests a client can make in a given time window. It protects services from abuse and overload.' },
@@ -231,7 +231,7 @@ export const topics = [
   {
     id: 'consistent-hashing',
     title: 'Consistent Hashing',
-    icon: '🎯',
+    icon: 'target',
     category: 'data',
     content: [
       { type: 'text', value: '**Consistent hashing** distributes data across nodes such that adding or removing a node only moves a small fraction of the keys.' },
@@ -253,7 +253,7 @@ export const topics = [
   {
     id: 'availability-patterns',
     title: 'Availability Patterns',
-    icon: '🛡️',
+    icon: 'shield',
     category: 'scale',
     content: [
       { type: 'text', value: 'High availability (HA) means a system remains operational despite failures. Measured in "nines" — 99.99% is four nines, allowing ~52 minutes of downtime per year.' },

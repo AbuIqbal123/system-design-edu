@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { interviewQuestions, interviewSteps, latencyNumbers, powersOfTwo } from '../data/topics';
 import LatencyChart from '../components/LatencyChart';
+import Icon from '../components/Icon';
 
 export default function InterviewPrep() {
   const [expandedStep, setExpandedStep] = useState(0);
@@ -16,7 +17,7 @@ export default function InterviewPrep() {
           <span>Interview Prep</span>
         </div>
         <h1 className="topic-title">
-          <span className="topic-icon">🎯</span>
+          <span className="topic-icon"><Icon name="target" size={32} /></span>
           System Design Interview Prep
         </h1>
         <div className="topic-meta">
@@ -33,7 +34,7 @@ export default function InterviewPrep() {
 
       {/* Study Guide */}
       <div className="section-header">
-        <h2>📋 Study Guide</h2>
+        <h2><Icon name="clipboard-list" size={24} /> Study Guide</h2>
         <p>Adjust based on your timeline, experience, and target companies.</p>
       </div>
 
@@ -60,7 +61,7 @@ export default function InterviewPrep() {
 
       {/* How to Approach */}
       <div className="section-header">
-        <h2>🧭 How to Approach a System Design Question</h2>
+        <h2><Icon name="compass" size={24} /> How to Approach a System Design Question</h2>
         <p>Follow these steps to structure your answer.</p>
       </div>
 
@@ -70,7 +71,7 @@ export default function InterviewPrep() {
             <button className="step-header" onClick={() => setExpandedStep(expandedStep === i ? -1 : i)} aria-expanded={expandedStep === i} aria-controls={`step-content-${i}`}>
               <div className="step-number">{step.step}</div>
               <div className="step-title">{step.title}</div>
-              <div className={`step-toggle ${expandedStep === i ? 'open' : ''}`}>▼</div>
+              <div className={`step-toggle ${expandedStep === i ? 'open' : ''}`}><Icon name="chevron-down" size={14} /></div>
             </button>
             {expandedStep === i && (
               <div className="step-content" id={`step-content-${i}`}>
@@ -88,7 +89,7 @@ export default function InterviewPrep() {
 
       {/* Back of the Envelope */}
       <div className="section-header">
-        <h2>🧮 Back-of-the-Envelope Calculations</h2>
+        <h2><Icon name="calculator" size={24} /> Back-of-the-Envelope Calculations</h2>
         <p>You might be asked to estimate by hand. Here are useful references.</p>
       </div>
 
@@ -122,7 +123,7 @@ export default function InterviewPrep() {
 
       {/* Interview Questions */}
       <div className="section-header">
-        <h2>💡 Practice Questions</h2>
+        <h2><Icon name="lightbulb" size={24} /> Practice Questions</h2>
         <p>Common system design interview questions with sample solutions.</p>
       </div>
 
